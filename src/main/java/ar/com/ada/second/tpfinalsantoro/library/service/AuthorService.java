@@ -1,6 +1,7 @@
 package ar.com.ada.second.tpfinalsantoro.library.service;
 
 
+import ar.com.ada.second.tpfinalsantoro.library.component.BusinessLogicExceptionComponent;
 import ar.com.ada.second.tpfinalsantoro.library.model.dto.AuthorDTO;
 import ar.com.ada.second.tpfinalsantoro.library.model.entity.Author;
 import ar.com.ada.second.tpfinalsantoro.library.model.mapper.AuthorMapper;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -21,6 +23,9 @@ public class AuthorService implements Services <AuthorDTO, Author> {
 
     @Autowired
     private AvoidingMappingContext context;
+
+    @Autowired
+    private BusinessLogicExceptionComponent logicExceptionComponent;
 
     @Autowired
     private AuthorRepository authorRepository;
@@ -44,34 +49,79 @@ public class AuthorService implements Services <AuthorDTO, Author> {
 
     @Override
     public AuthorDTO createNew(AuthorDTO dto) {
-        return null;
-    }
+        Author author = authorMapper.toEntity(dto, context);
 
+        authorRepository.save(author);
+
+        AuthorDTO savedAuthor = authorMapper.toDTO(author, context);
+
+        return savedAuthor;
+    }
 
 
     @Override
     public List<AuthorDTO> getAll() {
-        return null;
+
+        List <Author> authorList = authorRepository.findAll();
+
+        List<AuthorDTO> authorDTO = authorMapper.toDTO(authorList, context)
+
+        return authorDTO;
     }
 
     @Override
     public AuthorDTO getById(Long id) {
-        return null;
+
+        Optional<Author> authorOptional = authorRepository.findById(id);
+
+        Author author = authorOptional
+                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Author", id));
+
+        AuthorDTO authorDTO = authorMapper.toDTO(author, context);
+
+        return authorDTO;
     }
 
     @Override
     public AuthorDTO update(AuthorDTO dto, Long id) {
-        return null;
+
+        Optional<Author> authorOptional = authorRepository.findById(id);
+
+        Author authorById = authorOptional
+                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Author", id));
+
+        mergeData(authorById, dto);
+
+        authorRepository.save(authorById);
+
+        AuthorDTO updatedAuthor = authorMapper.toDTO(authorById, context);
+
+        return updatedAuthor;
     }
 
     @Override
     public void remove(Long id) {
+
+        Optional<Author> authorByIdToDelete = authorRepository.findById(id);
+
+        Author author = authorByIdToDelete
+                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Author", id));
+
+        authorRepository.deleteById(id);
 
     }
 
     @Override
     public void mergeData(Author entity, AuthorDTO dto) {
 
+        if (dto.hasNullOrEmptyAttributes())
+            throw logicExceptionComponent.getExceptionEntityEmptyValues("Author");
+
+        if (!entity.getTitle().equals(dto.getTitle()))
+            entity.setTitle(dto.getTitle());
+
+        if (!entity.getReleased().equals(dto.getReleased()))
+            entity.setReleased(dto.getReleased());
     }
 
 }

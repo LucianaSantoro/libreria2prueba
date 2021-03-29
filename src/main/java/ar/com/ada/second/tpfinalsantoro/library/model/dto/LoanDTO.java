@@ -17,6 +17,7 @@ public class LoanDTO implements Serializable {
 
     private Long id;
 
-
+    public LoanDTO(Long id, String name) {
+    }
 
 }
