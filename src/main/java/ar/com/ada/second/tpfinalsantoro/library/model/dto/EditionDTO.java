@@ -19,13 +19,13 @@ public class EditionDTO implements Serializable {
 
     private Long id;
 
-    @NotBlank(message = "Publishing place is requiered.")
+    @NotBlank(message = "Publishing place is required.")
     private String publishingPlace;
 
-    @NotBlank(message = "Book's publishing date is requiered.")
+    @NotBlank(message = "Book's publishing date is required.")
     private Date year;
 
-    @NotBlank(message = "Book's publishing house is requiered.")
+    @NotBlank(message = "Book's publishing house is required.")
     private String publishingHouse;
 }
 

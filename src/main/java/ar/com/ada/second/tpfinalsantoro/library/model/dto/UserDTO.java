@@ -18,16 +18,16 @@ public class UserDTO implements Serializable {
 
     private Long id;
 
-    @NotBlank(message = "User's name is requiered.")
+    @NotBlank(message = "User's name is required.")
     private String name;
 
-    @NotBlank(message = "User's lastname is requiered.")
+    @NotBlank(message = "User's lastname is required.")
     private String lastName;
 
-    @NotBlank(message = "User's birthdate requiered.")
+    @NotBlank(message = "User's birthdate required.")
     private Date birthdate;
 
-    @NotBlank(message = "User's studies are requiered.")
+    @NotBlank(message = "User's studies are required.")
     private String studies;
 
     @NotBlank(message = "User must indicate if working.") // TODO: 28/3/2021 suena raro

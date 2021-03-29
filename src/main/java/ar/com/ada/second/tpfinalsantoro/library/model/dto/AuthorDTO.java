@@ -22,19 +22,22 @@ public class AuthorDTO implements Serializable {
 
     private Long id;
 
-    @NotBlank(message = "Author's name is requiered.")
+    @NotBlank(message = "Author's name is required.")
     private String name;
 
-    @NotBlank(message = "Author's lastname is requiered.")
+    @NotBlank(message = "Author's lastname is required.")
     private String lastName;
 
-    @NotBlank(message = "Author's birthdate is requiered.")
+    @NotBlank(message = "Author's birthdate is required.")
     private Date birthdate;
 
-    @NotBlank(message = "Brief author's biography is requiered.")
+    @NotBlank(message = "Brief author's biography is required.")
     private String biography;
 
-    @NotBlank(message = "Author's birthplace is requiered.")
+    @NotBlank(message = "Author's birthplace is required.")
     private String birthplace;
-    
+
+
+    public AuthorDTO(Long id, String name) {
+    }
 }

@@ -2,6 +2,8 @@ package ar.com.ada.second.tpfinalsantoro.library.controller;
 
 
 import ar.com.ada.second.tpfinalsantoro.library.model.dto.AuthorDTO;
+import ar.com.ada.second.tpfinalsantoro.library.service.AuthorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,17 +14,18 @@ import java.util.List;
 @RequestMapping(value = "/author")
 public class AuthorController {
 
+@Autowired
+private AuthorService authorService;
 
     @GetMapping({"/", ""})
     public ResponseEntity getAuthor() {
 
-        /*List<AuthorDTO> authors = authorService.getAll();
+        List<AuthorDTO> authors = authorService.getAll();
 
         return ResponseEntity
                 .ok()
                 .body(authors);
 
-         */
 
     return null;
     }

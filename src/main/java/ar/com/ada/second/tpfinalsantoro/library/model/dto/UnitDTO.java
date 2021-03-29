@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Setter
 public class UnitDTO implements Serializable {
 
-    @NotBlank(message = "Book's fisical condition is requiered.") // TODO: 28/3/2021 de donde viene esta info? no tiene sentido
+    @NotBlank(message = "Book's fisical condition is required.") // TODO: 28/3/2021 de donde viene esta info? no tiene sentido
     private String unitCondition;
 
 }
