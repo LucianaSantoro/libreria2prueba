@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LoanService implements Services<LoanDTO>{
+public class LoanService implements Services<LoanDTO, Loan>{
 
 private LoanMapper loanMapper = LoanMapper.MAPPER;
 

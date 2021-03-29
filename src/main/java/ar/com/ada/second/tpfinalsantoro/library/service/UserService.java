@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService implements Services<UserDTO>{
+public class UserService implements Services<UserDTO, User>{
 
     private UserMapper userMapper = UserMapper.MAPPER;
 

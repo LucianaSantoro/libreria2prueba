@@ -10,7 +10,6 @@ import ar.com.ada.second.tpfinalsantoro.library.model.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,17 +60,15 @@ public class AuthorService implements Services <AuthorDTO, Author> {
 
     @Override
     public List<AuthorDTO> getAll() {
-
         List <Author> authorList = authorRepository.findAll();
 
-        List<AuthorDTO> authorDTO = authorMapper.toDTO(authorList, context)
+        List<AuthorDTO> authorDTO = authorMapper.toDTO(authorList, context);
 
         return authorDTO;
     }
 
     @Override
     public AuthorDTO getById(Long id) {
-
         Optional<Author> authorOptional = authorRepository.findById(id);
 
         Author author = authorOptional
@@ -84,7 +81,6 @@ public class AuthorService implements Services <AuthorDTO, Author> {
 
     @Override
     public AuthorDTO update(AuthorDTO dto, Long id) {
-
         Optional<Author> authorOptional = authorRepository.findById(id);
 
         Author authorById = authorOptional
@@ -101,7 +97,6 @@ public class AuthorService implements Services <AuthorDTO, Author> {
 
     @Override
     public void remove(Long id) {
-
         Optional<Author> authorByIdToDelete = authorRepository.findById(id);
 
         Author author = authorByIdToDelete
@@ -117,12 +112,37 @@ public class AuthorService implements Services <AuthorDTO, Author> {
         if (dto.hasNullOrEmptyAttributes())
             throw logicExceptionComponent.getExceptionEntityEmptyValues("Author");
 
-        if (!entity.getTitle().equals(dto.getTitle()))
-            entity.setTitle(dto.getTitle());
+        if (!entity.getName().equals(dto.getName()))
+            entity.setName(dto.setName());
 
-        if (!entity.getReleased().equals(dto.getReleased()))
-            entity.setReleased(dto.getReleased());
+        if (!entity.getLastName().equals(dto.getLastName()))
+            entity.setLastName(dto.getLastName());
+
+        if (!entity.getBirthdate().equals(dto.getBirthdate()))
+            entity.setBirthdate(dto.getBirthdate());
+
+        if (!entity.getBirthplace().equals(dto.getBirthplace()))
+            entity.setBirthdate(dto.getBirthdate());
+
+        if (!entity.getBiography().equals(dto.getBiography()))
+            entity.setBiography(dto.getBiography());
+
     }
 
+
+
+    public AuthorDTO removeById(Long id) {
+        Optional<Author> artistByIdToDelete = authorRepository.findById(id);
+
+        Author artist = artistByIdToDelete
+                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Artist", id));
+
+        authorRepository.delete(artist);
+
+        AuthorDTO deletedAuthor = authorMapper.toDTO(artist, context);
+
+        return deletedAuthor;
+    }
 }
+
 

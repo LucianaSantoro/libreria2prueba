@@ -1,5 +1,6 @@
 package ar.com.ada.second.tpfinalsantoro.library.model.repository;
 
+import ar.com.ada.second.tpfinalsantoro.library.model.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -47,8 +48,7 @@ public class BookRepository implements JpaRepository<BookRepository, Long> {
 
     }
 
-    @Override
-    public void delete(BookRepository bookRepository) {
+    public void delete(Book bookRepository) {
 
     }
 
@@ -62,8 +62,7 @@ public class BookRepository implements JpaRepository<BookRepository, Long> {
 
     }
 
-    @Override
-    public <S extends BookRepository> S save(S s) {
+    public <S extends BookRepository> S save(Book s) {
         return null;
     }
 

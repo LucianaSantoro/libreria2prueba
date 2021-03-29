@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EditionService implements Services <EditionDTO>{
+public class EditionService implements Services <EditionDTO, Edition>{
 
     private EditionMapper editionMapper = EditionMapper.MAPPER;
 

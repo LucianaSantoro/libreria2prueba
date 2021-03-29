@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UnitService implements Services<UnitDTO> {
+public class UnitService implements Services<UnitDTO, Unit> {
 
     private UnitMapper unitMapper = UnitMapper.MAPPER;
 
