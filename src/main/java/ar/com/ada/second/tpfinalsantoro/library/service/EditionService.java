@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -41,7 +42,7 @@ public class EditionService implements Services <EditionDTO, Edition> {
     @Autowired
     private UserRepository userRepository;
 
-   /* @Override
+   @Override
     public EditionDTO createNew(EditionDTO dto) {
         Edition edition = editionMapper.toEntity(dto, context);
 
@@ -102,32 +103,6 @@ public class EditionService implements Services <EditionDTO, Edition> {
         editionRepository.deleteById(id);
     }
 
-    */
-
-    @Override
-    public EditionDTO createNew(EditionDTO dto) {
-        return null;
-    }
-
-    @Override
-    public List<EditionDTO> getAll() {
-        return null;
-    }
-
-    @Override
-    public EditionDTO getById(Long id) {
-        return null;
-    }
-
-    @Override
-    public EditionDTO update(EditionDTO dto, Long id) {
-        return null;
-    }
-
-    @Override
-    public void remove(Long id) {
-
-    }
 
     @Override
     public void mergeData(Edition entity, EditionDTO dto) {

@@ -2,6 +2,7 @@ package ar.com.ada.second.tpfinalsantoro.library.service;
 
 import ar.com.ada.second.tpfinalsantoro.library.component.BusinessLogicExceptionComponent;
 
+import ar.com.ada.second.tpfinalsantoro.library.model.dto.AuthorDTO;
 import ar.com.ada.second.tpfinalsantoro.library.model.dto.LoanDTO;
 
 import ar.com.ada.second.tpfinalsantoro.library.model.entity.Loan;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -44,7 +46,7 @@ private LoanMapper loanMapper = LoanMapper.MAPPER;
     @Autowired
     private UserRepository userRepository;
 
-    /*
+
     @Override
 
 
@@ -53,13 +55,13 @@ private LoanMapper loanMapper = LoanMapper.MAPPER;
 
         loanRepository.save(loan);
 
-        AuthorDTO savedLoan = loanMapper.toDTO(loan, context);
+        LoanDTO savedLoan = loanMapper.toDTO(loan, context);
 
         return savedLoan;
     }
 
     @Override
-    public List<Loan> getAll() {
+    public List<LoanDTO> getAll() {
         List <Loan> loanList = loanRepository.findAll();
 
         List<LoanDTO> loanDTO = loanMapper.toDTO(loanList, context);
@@ -72,9 +74,9 @@ private LoanMapper loanMapper = LoanMapper.MAPPER;
         Optional<Loan> loanOptional = loanRepository.findById(id);
 
         Loan loan = loanOptional
-                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Author", id));
+                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Loan", id));
 
-        AuthorDTO loanDTO = loanMapper.toDTO(loan, context);
+        LoanDTO loanDTO = loanMapper.toDTO(loan, context);
 
         return loanDTO;
     }
@@ -84,11 +86,11 @@ private LoanMapper loanMapper = LoanMapper.MAPPER;
         Optional<Loan> loanByIdToDelete = loanRepository.findById(id);
 
         Loan loan = loanByIdToDelete
-                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Author", id));
+                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Loan", id));
 
         loanRepository.deleteById(id);
         }
-     */
+
 
 
     @Override
@@ -120,28 +122,7 @@ private LoanMapper loanMapper = LoanMapper.MAPPER;
    */
 
 
-
     @Override
-    public LoanDTO createNew(LoanDTO dto) {
-        return null;
-    }
-
-    @Override
-    public List<LoanDTO> getAll() {
-        return null;
-    }
-
-    @Override
-    public LoanDTO getById(Long id) {
-        return null;
-    }
-
-    @Override
-    public LoanDTO update(LoanDTO dto, Long id) {
-        return null;
-    }
-
-    /* @Override
      public LoanDTO update(LoanDTO dto, Long id) {
          Optional<Loan> loanOptional = loanRepository.findById(id);
 
@@ -158,9 +139,4 @@ private LoanMapper loanMapper = LoanMapper.MAPPER;
      }
 
 
-     */
-    @Override
-    public void remove(Long id) {
-
-    }
 }

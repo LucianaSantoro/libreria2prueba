@@ -43,7 +43,7 @@ public class BookService implements Services<BookDTO, Book>{
     @Autowired
     private UserRepository userRepository;
 
-   /* @Override
+   @Override
     public BookDTO createNew(BookDTO dto) {
         Book book = bookMapper.toEntity(dto, context);
 
@@ -54,12 +54,7 @@ public class BookService implements Services<BookDTO, Book>{
         return savedBook;
     }
 
-    */
 
-    @Override
-    public BookDTO createNew(BookDTO dto) {
-        return null;
-    }
 
     @Override
     public List<BookDTO> getAll() {

@@ -1,6 +1,6 @@
 package ar.com.ada.second.tpfinalsantoro.library.model.mapper;
 
-import ar.com.ada.second.tpfinalsantoro.library.model.entity.Edition;
+import ar.com.ada.second.tpfinalsantoro.library.model.entity.Book;
 import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface DataMapper<D, E> {
 
-    Edition toEntity(D dto, @Context AvoidingMappingContext context);
+    E toEntity(D dto, @Context AvoidingMappingContext context);
 
     List<E> toEntity(List<D> dtoList, @Context AvoidingMappingContext context);
 

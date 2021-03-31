@@ -46,7 +46,7 @@ public class AuthorService implements Services <AuthorDTO, Author> {
 
 
 
-    /*  @Override
+     @Override
     public AuthorDTO createNew(AuthorDTO dto) {
         Author author = authorMapper.toEntity(dto, context);
 
@@ -57,13 +57,6 @@ public class AuthorService implements Services <AuthorDTO, Author> {
         return savedAuthor;
     }
 
-     */
-
-
-    @Override
-    public AuthorDTO createNew(AuthorDTO dto) {
-        return null;
-    }
 
     @Override
     public List<AuthorDTO> getAll() {
