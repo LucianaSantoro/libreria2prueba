@@ -1,138 +1,27 @@
 package ar.com.ada.second.tpfinalsantoro.library.model.repository;
 
 import ar.com.ada.second.tpfinalsantoro.library.model.entity.Book;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
 @Repository
-public class BookRepository implements JpaRepository<BookRepository, Long> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Autowired
-    private BookRepository bookRepository;
+    /*
+    // queries nativas
 
-    @Override
-    public List<BookRepository> findAll() {
-        return null;
-    }
+    public Long countByName(String name);
 
-    @Override
-    public List<BookRepository> findAll(Sort sort) {
-        return null;
-    }
+    //JPQL -> preferible
+    @Query("Select Count (b) from book where b.name = :nombre")
+    public Long contarPorNombre(String nombre);
 
-    @Override
-    public Page<BookRepository> findAll(Pageable pageable) {
-        return null;
-    }
+    //nativa (con signos de pregunta) -> inyeccion que permite robar datos
+    @Query(value = "Select count (*) from book b where b.name = ?", nativeQuery = true)
+    public Long contarPorNombreNativo(String nombre);
 
-    @Override
-    public List<BookRepository> findAllById(Iterable<Long> iterable) {
-        return null;
-    }
+    // da errores si no están las mayus y minus. CaseSensitive - Pascal vs camel
 
-    @Override
-    public long count() {
-        return 0;
-    }
+     */
 
-    @Override
-    public void deleteById(Long aLong) {
-
-    }
-
-    public void delete(Book bookRepository) {
-
-    }
-
-    @Override
-    public void deleteAll(Iterable<? extends BookRepository> iterable) {
-
-    }
-
-    @Override
-    public void deleteAll() {
-
-    }
-
-    public <S extends BookRepository> S save(Book s) {
-        return null;
-    }
-
-    @Override
-    public <S extends BookRepository> List<S> saveAll(Iterable<S> iterable) {
-        return null;
-    }
-
-    @Override
-    public Optional<BookRepository> findById(Long aLong) {
-        return Optional.empty();
-    }
-
-    @Override
-    public boolean existsById(Long aLong) {
-        return false;
-    }
-
-    @Override
-    public void flush() {
-
-    }
-
-    @Override
-    public <S extends BookRepository> S saveAndFlush(S s) {
-        return null;
-    }
-
-    @Override
-    public void deleteInBatch(Iterable<BookRepository> iterable) {
-
-    }
-
-    @Override
-    public void deleteAllInBatch() {
-
-    }
-
-    @Override
-    public BookRepository getOne(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public <S extends BookRepository> Optional<S> findOne(Example<S> example) {
-        return Optional.empty();
-    }
-
-    @Override
-    public <S extends BookRepository> List<S> findAll(Example<S> example) {
-        return null;
-    }
-
-    @Override
-    public <S extends BookRepository> List<S> findAll(Example<S> example, Sort sort) {
-        return null;
-    }
-
-    @Override
-    public <S extends BookRepository> Page<S> findAll(Example<S> example, Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public <S extends BookRepository> long count(Example<S> example) {
-        return 0;
-    }
-
-    @Override
-    public <S extends BookRepository> boolean exists(Example<S> example) {
-        return false;
-    }
 }

@@ -46,7 +46,7 @@ public class AuthorService implements Services <AuthorDTO, Author> {
 
 
 
-    @Override
+    /*  @Override
     public AuthorDTO createNew(AuthorDTO dto) {
         Author author = authorMapper.toEntity(dto, context);
 
@@ -57,6 +57,13 @@ public class AuthorService implements Services <AuthorDTO, Author> {
         return savedAuthor;
     }
 
+     */
+
+
+    @Override
+    public AuthorDTO createNew(AuthorDTO dto) {
+        return null;
+    }
 
     @Override
     public List<AuthorDTO> getAll() {
@@ -113,7 +120,7 @@ public class AuthorService implements Services <AuthorDTO, Author> {
             throw logicExceptionComponent.getExceptionEntityEmptyValues("Author");
 
         if (!entity.getName().equals(dto.getName()))
-            entity.setName(dto.setName());
+            entity.setName(dto.getName());
 
         if (!entity.getLastName().equals(dto.getLastName()))
             entity.setLastName(dto.getLastName());

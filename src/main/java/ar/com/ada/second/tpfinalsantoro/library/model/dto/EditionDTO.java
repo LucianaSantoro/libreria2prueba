@@ -2,10 +2,7 @@ package ar.com.ada.second.tpfinalsantoro.library.model.dto;
 
 import ar.com.ada.second.tpfinalsantoro.library.model.mapper.converter.YearAttributeConverter;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -18,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class EditionDTO implements Serializable {
 
     private Long id;

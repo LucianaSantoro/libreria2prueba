@@ -43,7 +43,7 @@ public class BookService implements Services<BookDTO, Book>{
     @Autowired
     private UserRepository userRepository;
 
-    @Override
+   /* @Override
     public BookDTO createNew(BookDTO dto) {
         Book book = bookMapper.toEntity(dto, context);
 
@@ -52,6 +52,13 @@ public class BookService implements Services<BookDTO, Book>{
         BookDTO savedBook = bookMapper.toDTO(book, context);
 
         return savedBook;
+    }
+
+    */
+
+    @Override
+    public BookDTO createNew(BookDTO dto) {
+        return null;
     }
 
     @Override
@@ -95,7 +102,7 @@ public class BookService implements Services<BookDTO, Book>{
             throw logicExceptionComponent.getExceptionEntityEmptyValues("Book");
 
         if (!entity.getAuthor().equals(dto.getAuthor()))
-            entity.setAuthor(dto.setAuthor());
+            entity.setAuthor(dto.getAuthor());
 
         if (!entity.getTitle().equals(dto.getTitle()))
             entity.setTitle(dto.getTitle());
@@ -134,5 +141,9 @@ public class BookService implements Services<BookDTO, Book>{
         BookDTO deletedBook = bookMapper.toDTO(book, context);
 
         return deletedBook;
+    }
+
+    public Long count(Long bookId) {
+        return bookRepository.count();
     }
 }

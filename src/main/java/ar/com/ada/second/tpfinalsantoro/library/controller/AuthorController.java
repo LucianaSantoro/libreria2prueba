@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
+
 
 @RestController
 @RequestMapping(value = "/author")
@@ -20,11 +20,12 @@ private AuthorService authorService;
     @GetMapping({"/", ""})
     public ResponseEntity getAuthor() {
 
-        List<AuthorDTO> authors = authorService.getAll();
+     /* List<AuthorDTO> authors = authorService.getAll();
 
         return ResponseEntity
                 .ok()
                 .body(authors);
+      */
 
 
     return null;

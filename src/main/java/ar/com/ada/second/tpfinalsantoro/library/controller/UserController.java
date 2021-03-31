@@ -1,35 +1,40 @@
 package ar.com.ada.second.tpfinalsantoro.library.controller;
 
+import ar.com.ada.second.tpfinalsantoro.library.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(value = "/user")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
 
     @GetMapping({"/", ""})
-    public ResponseEntity getAuthor() {
+    public ResponseEntity getUser() {
         return null;
     }
 
 
     @GetMapping({"/id", "id"})
-    public ResponseEntity getAuthorById() {
+    public ResponseEntity getUserById() {
         return null;
     }
 
     @PostMapping
-    public ResponseEntity postAuthor() {
+    public ResponseEntity postUser() {
         return null;
     }
 
     @PatchMapping
-    public ResponseEntity patchAuthor() {
+    public ResponseEntity patchUser() {
         return null;
     }
 
     @DeleteMapping
-    public ResponseEntity deleteAuthor() {
+    public ResponseEntity deleteUser() {
         return null;
     }
 

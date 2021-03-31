@@ -21,7 +21,7 @@ public class Edition {
     private Long id;
 
     @Column(nullable = false)
-    private String publishingPlace;
+    private String printingPlace;
 
     @Convert(converter = YearAttributeConverter.class)
     @Column(nullable = false)

@@ -1,33 +1,39 @@
 package ar.com.ada.second.tpfinalsantoro.library.controller;
 
+import ar.com.ada.second.tpfinalsantoro.library.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping(value = "/book")
 public class BookController {
 
+    @Autowired
+    private BookService bookService;
+
     @GetMapping({"/", ""})
-    public ResponseEntity getAuthor() {
+    public ResponseEntity getBook() {
         return null;
     }
 
     @GetMapping({"/id", "id"})
-    public ResponseEntity getAuthorById() {
+    public ResponseEntity getBookById() {
         return null;
     }
 
     @PostMapping
-    public ResponseEntity postAuthor() {
+    public ResponseEntity postBook() {
         return null;
     }
 
     @PatchMapping
-    public ResponseEntity patchAuthor() {
+    public ResponseEntity patchBook() {
         return null;
     }
 
     @DeleteMapping
-    public ResponseEntity deleteAuthor() {
+    public ResponseEntity deleteBook() {
         return null;
     }
 

@@ -1,10 +1,17 @@
 package ar.com.ada.second.tpfinalsantoro.library.model.dto;
 
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+@ToString
 public class BookDTO implements Serializable {
 
     private Long id;
