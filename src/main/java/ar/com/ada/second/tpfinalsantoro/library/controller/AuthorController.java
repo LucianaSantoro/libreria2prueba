@@ -24,7 +24,6 @@ public class AuthorController {
 
     @GetMapping({"/", ""})
     public ResponseEntity getAuthor() {
-
         List<AuthorDTO> authors = authorService.getAll();
 
         return ResponseEntity
@@ -44,7 +43,6 @@ public class AuthorController {
 
     @PostMapping({"/", ""})
     public ResponseEntity postAuthor(@Valid @RequestBody AuthorDTO dto) throws URISyntaxException {
-
         AuthorDTO newAuthor = authorService.createNew(dto);
         URI uri = new URI("/author/" + newAuthor.getId());
 
