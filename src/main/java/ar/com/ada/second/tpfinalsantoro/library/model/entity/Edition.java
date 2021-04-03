@@ -5,7 +5,9 @@ import ar.com.ada.second.tpfinalsantoro.library.model.mapper.converter.YearAttri
 import lombok.*;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +31,13 @@ public class Edition {
 
     @Column(nullable = false)
     private String publishingHouse;
+
+    @ManyToOne
+    @JoinColumn(name = "edition_id", nullable = false, foreignKey = @ForeignKey(name = "fk_book_edition")) //todo lazyFetch?
+    private Edition edition;
+
+    @OneToMany(mappedBy = "edition")
+    private List<Unit> Units;
 
 
 }

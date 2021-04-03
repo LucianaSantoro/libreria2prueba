@@ -114,7 +114,7 @@ public class BookService implements Services<BookDTO, Book>{
         Optional<Book> bookOptional = bookRepository.findById(id);
 
         Book bookById = bookOptional
-                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Author", id));
+                .orElseThrow(() -> logicExceptionComponent.getExceptionEntityNotFound("Book", id));
 
         mergeData(bookById, dto);
 

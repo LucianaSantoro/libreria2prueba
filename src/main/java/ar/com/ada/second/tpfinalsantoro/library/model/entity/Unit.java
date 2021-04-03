@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,5 +23,10 @@ public class Unit {
     @Column(nullable = false)
     private String unitCondition;
 
+    @ManyToOne
+    @JoinColumn(name = "unit_id", nullable = false, foreignKey = @ForeignKey(name = "fk_unit_edition")) //todo lazyFetch?
+    private Unit unit;
 
+    @OneToMany(mappedBy = "unit")
+    private List<Loan> loans;
 }

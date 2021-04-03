@@ -25,6 +25,7 @@ public class AuthorDTO implements Serializable {
 
     private Long id;
 
+
     @NotBlank(message = "Author's name is required.")
     @Pattern(regexp = "^[0-9a-zA-ZáéíóúÁÉÍÓÚÜüñÑ\\s]*$", message = "Author's name contains invalid characters.")
     private String name;

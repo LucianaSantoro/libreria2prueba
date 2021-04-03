@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,4 +37,7 @@ public class User {
     @Column(nullable = false)
     private Boolean studying;
 
+
+    @OneToMany(mappedBy = "user")
+    private List<Loan> loans;
 }

@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,19 +21,22 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(length = 45, nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(length = 45, nullable = false)
     private String lastName;
 
     @Column(nullable = false)
     private Date birthdate;
 
-    @Column(nullable = false)
+    @Column(length = 300, nullable = false)
     private String biography;
 
     @Column(nullable = false)
     private String birthplace;
+
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books;
 
 }

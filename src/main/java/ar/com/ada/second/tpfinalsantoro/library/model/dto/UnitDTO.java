@@ -21,8 +21,7 @@ public class UnitDTO implements Serializable {
     @Pattern(regexp = "^[0-9a-zA-ZáéíóúÁÉÍÓÚÜüñÑ\\s]*$", message = "Author's biography contains invalid characters.")
     private String unitCondition;
 
-    public UnitDTO(Long id, String name) {
-    }
+
 
     public Boolean hasNullOrEmptyAttributes() {
         return unitCondition == null || unitCondition.trim().isEmpty();

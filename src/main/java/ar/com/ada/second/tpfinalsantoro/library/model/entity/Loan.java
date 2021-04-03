@@ -19,4 +19,11 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "unit_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loan_unit")) //todo lazyFetch?
+    private Unit unit;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_loan_unit")) //todo lazyFetch?
+    private Unit user;
 }
