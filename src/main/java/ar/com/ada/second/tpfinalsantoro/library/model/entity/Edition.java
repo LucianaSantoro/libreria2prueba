@@ -32,12 +32,12 @@ public class Edition {
     @Column(nullable = false)
     private String publishingHouse;
 
-    @ManyToOne
-    @JoinColumn(name = "edition_id", nullable = false, foreignKey = @ForeignKey(name = "fk_book_edition")) //todo lazyFetch?
-    private Edition edition;
+    @ManyToOne // a book
+    @JoinColumn(name = "Book_id", nullable = false, foreignKey = @ForeignKey(name = "fk_Edition_Book")) //todo lazyFetch?
+    private Book book;
 
-    @OneToMany(mappedBy = "edition")
-    private List<Unit> Units;
+    @OneToMany(mappedBy = "edition") // a unit
+    private List<Unit> units;
 
 
 }

@@ -23,10 +23,10 @@ public class Unit {
     @Column(nullable = false)
     private String unitCondition;
 
-    @ManyToOne
-    @JoinColumn(name = "unit_id", nullable = false, foreignKey = @ForeignKey(name = "fk_unit_edition")) //todo lazyFetch?
-    private Unit unit;
+    @ManyToOne // a edition
+    @JoinColumn(name = "Edition_id", nullable = false, foreignKey = @ForeignKey(name = "fk_Unit_Edition")) //todo lazyFetch?
+    private Edition edition;
 
-    @OneToMany(mappedBy = "unit")
+    @OneToMany(mappedBy = "unit") // a loan
     private List<Loan> loans;
 }

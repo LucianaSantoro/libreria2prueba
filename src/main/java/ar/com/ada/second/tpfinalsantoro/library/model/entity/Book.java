@@ -37,20 +37,20 @@ public class Book {
     @JoinTable(
             name = "Author_has_book",
             joinColumns = {@JoinColumn(
-                    name = "Author_id",
-                    referencedColumnName = "id",
-                    foreignKey = @ForeignKey(name = "fk_author_id"))
-            },
-            inverseJoinColumns = {@JoinColumn(
                     name = "Book_id",
                     referencedColumnName = "id",
-                    foreignKey = @ForeignKey(name = "fk_book_id"))
+                    foreignKey = @ForeignKey(name = "fk_Author_has_Book_Book"))
+            },
+            inverseJoinColumns = {@JoinColumn(
+                    name = "Author_id",
+                    referencedColumnName = "id",
+                    foreignKey = @ForeignKey(name = "fk_Author_has_Book_Author"))
             }
     )
     private Set<Author> authors;
 
-    @OneToMany(mappedBy = "editions")
-    private List<Book> books;
+    @OneToMany(mappedBy = "book")
+    private List<Edition> editions ;
 
 
 }
