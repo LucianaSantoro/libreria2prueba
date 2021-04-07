@@ -36,7 +36,7 @@ public class AuthorDTO implements Serializable {
 
 
     @JsonFormat(pattern = "yyyy") // TODO: 29/3/2021 chequear json format para esto
-    @NotBlank(message = "Author's birthdate is required.")
+    //@NotBlank(message = "Author's birthdate is required.")
     @PastOrPresent(message = "Author's birthdate must be in the past.")
     private Date birthdate;
 
@@ -45,7 +45,7 @@ public class AuthorDTO implements Serializable {
     private String birthplace;
 
     @NotBlank(message = "Brief author's biography is required.")
-    @Pattern(regexp = "^[0-9a-zA-ZáéíóúÁÉÍÓÚÜüñÑ\\s]*$", message = "Author's biography contains invalid characters.")
+    @Pattern(regexp = "^[0-9a-zA-ZáéíóúÁÉÍÓÚÜüñÑ.,\\/#!$%\\^&\\*;:{}=\\-_`~()”“\"…\\s]*$", message = "Author's biography contains invalid characters.")
     private String biography;
 
 

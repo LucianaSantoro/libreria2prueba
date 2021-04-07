@@ -38,6 +38,8 @@ public class User {
     private Boolean studying;
 
 
-    @OneToMany(mappedBy = "user")
+    /* @ManyToMany (mappedBy = "users")
     private List<Loan> loans;
+
+     */
 }

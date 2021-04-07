@@ -30,7 +30,7 @@ public class Author {
     @Column(nullable = false)
     private Date birthdate;
 
-    @Column(length = 300, nullable = false)
+    @Column(length = 500, nullable = false)
     private String biography;
 
     @Column(nullable = false)
@@ -38,5 +38,8 @@ public class Author {
 
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
+
+
+
 
 }

@@ -26,7 +26,7 @@ public class EditionDTO implements Serializable {
 
     @JsonFormat(pattern = "yyyy")
     @NotBlank(message = "Book's publishing date is required.")
-    @PastOrPresent(message = "Book's publishing date must be in the past.")
+    @PastOrPresent(message = "Book's publishing date must be in the past or present.")
     private Date year;
 
     @NotBlank(message = "Book's publishing house is required.")

@@ -1,7 +1,10 @@
 package ar.com.ada.second.tpfinalsantoro.library.model.entity;
 
 
+
 import lombok.*;
+
+import java.util.List;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,7 +27,25 @@ public class Loan {
     private Unit unit;
 
 
-    @ManyToOne //a user
-    @JoinColumn(name = "User_id", nullable = false, foreignKey = @ForeignKey(name = "fk_Loan_User")) //todo lazyFetch?
-    private User user;
+
+
+ /*   @ManyToMany
+    @JoinTable(
+            name = "User_has_loan",
+            joinColumns = {@JoinColumn(
+                    name = "Loan_id",
+                    referencedColumnName = "id",
+                    foreignKey = @ForeignKey(name = "fk_user_has_loan_loan"))
+            },
+            inverseJoinColumns = {@JoinColumn(
+                    name = "User_id",
+                    referencedColumnName = "id",
+                    foreignKey = @ForeignKey(name = "fk_user_has_loan_user"))
+            }
+    )
+
+    private List<User> users;
+
+  */
+
 }
